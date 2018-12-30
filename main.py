@@ -3,6 +3,7 @@ from sklearn import linear_model
 from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
 
+
 def linearPredictionHappiness():
     df = panda.read_csv("data/2017.csv", sep=',')
     reg = linear_model.LinearRegression()
@@ -21,11 +22,10 @@ def linearPredictionHappiness():
     print ("==============================================================")
     print(yPrediction)
 
+
 def main():
 
     linearPredictionHappiness()
-
-
 
 
 if __name__ == "__main__":
