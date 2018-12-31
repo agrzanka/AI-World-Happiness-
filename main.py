@@ -123,7 +123,7 @@ def linearPredictionHappiness():
 
 
 def logisticPredictionHappiness():
-    df1 = panda.read_csv("data/extended2.csv", sep=',')
+    df1 = panda.read_csv("data/2017.2.csv", sep=',')
     plt.scatter(df1[['Economy..GDP.per.Capita.']], df1[['Binary.Happiness.Score']])
     plt.show()
 
