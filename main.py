@@ -1,5 +1,6 @@
 import pandas as panda
 from sklearn import linear_model
+
 from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
 
@@ -118,14 +119,19 @@ def linearPredictionHappiness():
 
 
 def logisticPredictionHappiness():
-    df = panda.read_csv("data/2017.csv", sep=',')
+    df1 = panda.read_csv("data/extended2017.csv", sep=',')
+    print('fuck you very much')
+    plt.scatter(df1[['Economy..GDP.per.Capita.']], df1[['Binary.Happiness.Score']])
+    plt.show()
 
 
 
 
 def main():
 
-    linearPredictionHappiness()
+  #  linearPredictionHappiness()
+    print('=============================== LOGISTIC REGRESSION ==========================================')
+    logisticPredictionHappiness()
 
 
 
