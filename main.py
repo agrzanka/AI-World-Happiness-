@@ -117,9 +117,17 @@ def linearPredictionHappiness():
     print(regMultiple3.intercept_)
 
 
+def logisticPredictionHappiness():
+    df = panda.read_csv("data/2017.csv", sep=',')
+
+
+
+
 def main():
 
     linearPredictionHappiness()
+
+
 
 
 if __name__ == "__main__":
