@@ -122,24 +122,168 @@ def linearPredictionHappiness():
     print(regMultiple3.intercept_)
 
 
+def f(x):
+    return 1/(1+np.exp(-x))
+
 def logisticPredictionHappiness():
     df1 = panda.read_csv("data/2017.2.csv", sep=',')
+
+    plt.scatter(df1[['Freedom']], df1[['Binary.Happiness.Score']])
+    plt.show()
+
+    X_train, X_test, y_train, y_test=train_test_split(df1[['Freedom']], df1[['Binary.Happiness.Score']], test_size=0.01)
+    model=LogisticRegression()
+    model.fit(X_train,y_train.values.ravel())
+    print("data used to train our model:")
+    print(X_train)
+    print("\nvalues to perform our test on ")
+    print (X_test)
+    model.predict_proba(X_test)
+    print("\nprobability:")
+    print(model.predict_proba(X_test))
+    print("\nmodel score")
+    print(model.score(X_test, y_test))
+
+
+    plt.scatter(df1[['Health..Life.Expectancy.']], df1[['Binary.Happiness.Score']])
+    plt.show()
+
+    X_train, X_test, y_train, y_test = train_test_split(df1[['Health..Life.Expectancy.']],
+                                                        df1[['Binary.Happiness.Score']], test_size=0.01)
+    model = LogisticRegression()
+    model.fit(X_train, y_train.values.ravel())
+    print("data used to train our model:")
+    print(X_train)
+    print("\nvalues to perform our test on ")
+    print (X_test)
+    model.predict_proba(X_test)
+    print("\nprobability:")
+    print(model.predict_proba(X_test))
+    print("\nmodel score")
+    print(model.score(X_test, y_test))
+
+
     plt.scatter(df1[['Economy..GDP.per.Capita.']], df1[['Binary.Happiness.Score']])
     plt.show()
 
-    print(df1['Binary.Happiness.Score'].value_counts())
-    x_train, x_test, y_train, y_test = train_test_split(df1[['Economy..GDP.per.Capita.']], df1[['Binary.Happiness.Score']], test_size=0.1)
-
+    X_train, X_test, y_train, y_test = train_test_split(df1[['Economy..GDP.per.Capita.']],
+                                                        df1[['Binary.Happiness.Score']], test_size=0.01)
     model = LogisticRegression()
-    model.fit(x_train, y_train)
+    model.fit(X_train, y_train.values.ravel())
+    print("data used to train our model:")
+    print(X_train)
+    print("\nvalues to perform our test on ")
+    print (X_test)
+    model.predict_proba(X_test)
+    print("\nprobability:")
+    print(model.predict_proba(X_test))
+    print("\nmodel score")
+    print(model.score(X_test, y_test))
 
-    wide_test = [i + 0.1 for i in range(2)]
-    wide_test = np.array(wide_test).reshape(-1, 1)
-    binaryHappiness = model.predict(wide_test)
-    print(collections.Counter(binaryHappiness))
-    plt.scatter(wide_test, binaryHappiness, marker='+', color='red')
+
+    plt.scatter(df1[['Family']], df1[['Binary.Happiness.Score']])
     plt.show()
 
+    X_train, X_test, y_train, y_test = train_test_split(df1[['Family']],
+                                                        df1[['Binary.Happiness.Score']], test_size=0.01)
+    model = LogisticRegression()
+    model.fit(X_train, y_train.values.ravel())
+    print("data used to train our model:")
+    print(X_train)
+    print("\nvalues to perform our test on ")
+    print (X_test)
+    model.predict_proba(X_test)
+    print("\nprobability:")
+    print(model.predict_proba(X_test))
+    print("\nmodel score")
+    print(model.score(X_test, y_test))
+
+
+    plt.scatter(df1[['Generosity']], df1[['Binary.Happiness.Score']])
+    plt.show()
+
+    X_train, X_test, y_train, y_test = train_test_split(df1[['Generosity']],
+                                                        df1[['Binary.Happiness.Score']], test_size=0.01)
+    model = LogisticRegression()
+    model.fit(X_train, y_train.values.ravel())
+    print("data used to train our model:")
+    print(X_train)
+    print("\nvalues to perform our test on ")
+    print (X_test)
+    model.predict_proba(X_test)
+    print("\nprobability:")
+    print(model.predict_proba(X_test))
+    print("\nmodel score")
+    print(model.score(X_test, y_test))
+
+
+    plt.scatter(df1[['Trust..Government.Corruption.']], df1[['Binary.Happiness.Score']])
+    plt.show()
+
+    X_train, X_test, y_train, y_test = train_test_split(df1[['Trust..Government.Corruption.']],
+                                                        df1[['Binary.Happiness.Score']], test_size=0.01)
+    model = LogisticRegression()
+    model.fit(X_train, y_train.values.ravel())
+    print("data used to train our model:")
+    print(X_train)
+    print("\nvalues to perform our test on ")
+    print (X_test)
+    model.predict_proba(X_test)
+    print("\nprobability:")
+    print(model.predict_proba(X_test))
+    print("\nmodel score")
+    print(model.score(X_test, y_test))
+
+
+    plt.scatter(df1[['Dystopia.Residual']], df1[['Binary.Happiness.Score']])
+    plt.show()
+
+    X_train, X_test, y_train, y_test = train_test_split(df1[['Dystopia.Residual']],
+                                                        df1[['Binary.Happiness.Score']], test_size=0.01)
+    model = LogisticRegression()
+    model.fit(X_train, y_train.values.ravel())
+    print("data used to train our model:")
+    print(X_train)
+    print("\nvalues to perform our test on ")
+    print (X_test)
+    model.predict_proba(X_test)
+    print("\nprobability:")
+    print(model.predict_proba(X_test))
+    print("\nmodel score")
+    print(model.score(X_test,y_test))
+
+
+
+
+    #print(df1['Binary.Happiness.Score'].value_counts())
+    #x_train, x_test, y_train, y_test = train_test_split(df1[['Freedom']], df1[['Binary.Happiness.Score']], test_size=0.1)
+
+    #model = LogisticRegression()
+   # model.fit(x_train, y_train)
+   # model.fit(x_train, y_train.values.ravel())
+
+    #wide_test = [i + 0.1 for i in range(2)]
+    #wide_test = np.array(wide_test).reshape(-1, 1)
+    #binaryHappiness = model.predict(wide_test)
+    #print(collections.Counter(binaryHappiness))
+    #plt.scatter(wide_test, binaryHappiness, marker='+', color='red')
+    #plt.show()
+
+
+
+
+    #plt.scatter(df1[['Family']], df1[['Binary.Happiness.Score']])
+    #plt.show()
+
+   # regEconomy = linear_model.LinearRegression()
+    #regEconomy.fit(df1[['Family']], df1[['Binary.Happiness.Score']])
+    #yPredictionEconomy = regEconomy.predict(df1[['Family']])
+    #a=regEconomy.coef_
+    #b=regEconomy.intercept_
+    #eq=a*df1[['Family']]+b
+    #plt.scatter(df1[['Family']], df1[['Binary.Happiness.Score']])
+    #plt.plot(df1[['Family']], f(eq), color='red')
+    #plt.show()
 
 
 def main():
