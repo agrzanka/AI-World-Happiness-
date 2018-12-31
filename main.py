@@ -129,6 +129,8 @@ def logisticPredictionHappiness():
     df1 = panda.read_csv("data/2017.2.csv", sep=',')
 
     plt.scatter(df1[['Freedom']], df1[['Binary.Happiness.Score']])
+    plt.xlabel('Freedom')
+    plt.ylabel('Binary Happiness Score')
     plt.show()
 
     X_train, X_test, y_train, y_test=train_test_split(df1[['Freedom']], df1[['Binary.Happiness.Score']], test_size=0.01)
@@ -146,6 +148,8 @@ def logisticPredictionHappiness():
 
 
     plt.scatter(df1[['Health..Life.Expectancy.']], df1[['Binary.Happiness.Score']])
+    plt.xlabel('Health')
+    plt.ylabel('Binary Happiness Score')
     plt.show()
 
     X_train, X_test, y_train, y_test = train_test_split(df1[['Health..Life.Expectancy.']],
@@ -164,6 +168,8 @@ def logisticPredictionHappiness():
 
 
     plt.scatter(df1[['Economy..GDP.per.Capita.']], df1[['Binary.Happiness.Score']])
+    plt.xlabel('Economy')
+    plt.ylabel('Binary Happiness Score')
     plt.show()
 
     X_train, X_test, y_train, y_test = train_test_split(df1[['Economy..GDP.per.Capita.']],
@@ -182,6 +188,8 @@ def logisticPredictionHappiness():
 
 
     plt.scatter(df1[['Family']], df1[['Binary.Happiness.Score']])
+    plt.xlabel('Family')
+    plt.ylabel('Binary Happiness Score')
     plt.show()
 
     X_train, X_test, y_train, y_test = train_test_split(df1[['Family']],
@@ -200,6 +208,8 @@ def logisticPredictionHappiness():
 
 
     plt.scatter(df1[['Generosity']], df1[['Binary.Happiness.Score']])
+    plt.xlabel('Generosity')
+    plt.ylabel('Binary Happiness Score')
     plt.show()
 
     X_train, X_test, y_train, y_test = train_test_split(df1[['Generosity']],
@@ -218,6 +228,8 @@ def logisticPredictionHappiness():
 
 
     plt.scatter(df1[['Trust..Government.Corruption.']], df1[['Binary.Happiness.Score']])
+    plt.xlabel('Trust')
+    plt.ylabel('Binary Happiness Score')
     plt.show()
 
     X_train, X_test, y_train, y_test = train_test_split(df1[['Trust..Government.Corruption.']],
@@ -236,6 +248,8 @@ def logisticPredictionHappiness():
 
 
     plt.scatter(df1[['Dystopia.Residual']], df1[['Binary.Happiness.Score']])
+    plt.xlabel('Dystopia')
+    plt.ylabel('Binary Happiness Score')
     plt.show()
 
     X_train, X_test, y_train, y_test = train_test_split(df1[['Dystopia.Residual']],
