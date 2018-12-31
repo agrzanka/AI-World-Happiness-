@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 def linearPredictionHappiness():
     df = panda.read_csv("data/2017.csv", sep=',')
 
-    # ============= linear regresion: single variable ==================================
+    # ============= linear regression: single variable ==================================
 
     regFreedom = linear_model.LinearRegression()
     regFreedom.fit(df[['Freedom']], df[['Happiness.Score']])
@@ -73,6 +73,15 @@ def linearPredictionHappiness():
     plt.plot(df[['Dystopia.Residual']], yPredictionDystopia, color='red')
     plt.show()
 
+# linear regression for multiple variable - only to choose which of them are the most important
+    print ("==============================================================")
+    regMultiple2 = linear_model.LinearRegression()
+    regMultiple2.fit(df[['Freedom','Health..Life.Expectancy.', 'Economy..GDP.per.Capita.', 'Family', 'Generosity', 'Trust..Government.Corruption.', 'Dystopia.Residual']], df[['Happiness.Score']])
+    print('ALL:\ncoef: FREEDOM, HEALTH, ECONOMY, FAMILY, GENEROSITY, TRUST, DYSTOPIA')
+    print(regMultiple2.coef_)
+    print ("intercept:")
+    print(regMultiple2.intercept_)
+    print ("==============================================================")
 
     print('HEALTH:\ncoef:')
     print(regHealth.coef_)
@@ -88,11 +97,24 @@ def linearPredictionHappiness():
     print(regFamily.coef_)
     print ("intercept:")
     print(regFamily.intercept_)
+    print ("==============================================================")
 
 
-    #============= linear regresion: multiple variable ==================================
+    # ============= linear regression: multiple variable ==================================
+    regMultiple = linear_model.LinearRegression()
+    regMultiple.fit(df[['Health..Life.Expectancy.','Economy..GDP.per.Capita.','Family' ]], df[['Happiness.Score']])
+    print('MULTIPLE 1:\ncoef: HEALTH, ECONOMY, FAMILY')
+    print(regMultiple.coef_)
+    print ("intercept:")
+    print(regMultiple.intercept_)
 
-
+    print ("==============================================================")
+    regMultiple3 = linear_model.LinearRegression()
+    regMultiple3.fit(df[['Freedom', 'Economy..GDP.per.Capita.', 'Generosity']], df[['Happiness.Score']])
+    print('MULTIPLE 2:\ncoef: FREEDOM, ECONOMY, GENEROSITY')
+    print(regMultiple3.coef_)
+    print ("intercept:")
+    print(regMultiple3.intercept_)
 
 
 def main():
