@@ -1,5 +1,9 @@
 import pandas as panda
 from sklearn import linear_model
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+import collections
+import numpy as np
 
 from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
@@ -122,6 +126,20 @@ def logisticPredictionHappiness():
     df1 = panda.read_csv("data/extended2.csv", sep=',')
     plt.scatter(df1[['Economy..GDP.per.Capita.']], df1[['Binary.Happiness.Score']])
     plt.show()
+
+    print(df1['Binary.Happiness.Score'].value_counts())
+    x_train, x_test, y_train, y_test = train_test_split(df1[['Economy..GDP.per.Capita.']], df1[['Binary.Happiness.Score']], test_size=0.1)
+
+    model = LogisticRegression()
+    model.fit(x_train, y_train)
+
+    wide_test = [i + 0.1 for i in range(2)]
+    wide_test = np.array(wide_test).reshape(-1, 1)
+    binaryHappiness = model.predict(wide_test)
+    print(collections.Counter(binaryHappiness))
+    plt.scatter(wide_test, binaryHappiness, marker='+', color='red')
+    plt.show()
+
 
 
 
